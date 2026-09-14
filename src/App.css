@@ -1,0 +1,11 @@
+@import "tailwindcss";  
+
+body, html {
+  padding: 0;
+  margin: 0;
+}
+
+@theme {
+  --color-tk-dark: #4A6576;
+  --color-tk-light: #8FA2A9;
+}

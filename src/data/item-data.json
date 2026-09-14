@@ -1,0 +1,80 @@
+[
+    {
+        "categoryName": "Default",
+        "items": [
+            {"id": 1, "title": "Náhrobky", "next": "Náhrobky", "image": "../desky/typ-A.png"},
+            {"id": 2, "title": "Lampy a Vázy", "next": "LampyVázy", "image": "../lampy-vazy/lampa-nerez.png"},
+            {"id": 3, "title": "Doplňky", "next": "Doplňky", "image": "../doplnky/srdce.png"},
+            {"id": 4, "title": "Schody", "next": "Materiály", "image": "../schody.png"},
+            {"id": 5, "title": "Parapety", "next": "Materiály", "image": "../parapety.png"},
+            {"id": 6, "title": "Písmo", "next": "Písmo", "image": "../Aa-pismo.png"}
+        ]
+    },
+    {
+        "categoryName": "Náhrobky",
+        "items": [
+            {"id": 1, "title": "Typ-A", "next": "Materiály", "image": "../desky/typ-A.png"},
+            {"id": 2, "title": "Typ-B", "next": "Materiály", "image": "../desky/typ-B.png"},
+            {"id": 3, "title": "Typ-C", "next": "Materiály", "image": "../desky/typ-C.png"},
+            {"id": 4, "title": "Typ-D", "next": "Materiály", "image": "../desky/typ-D.png"},
+            {"id": 5, "title": "Typ-E", "next": "Materiály", "image": "../desky/typ-E.png"},
+            {"id": 6, "title": "Typ-F", "next": "Materiály", "image": "../desky/typ-F.png"}
+        ]
+    },
+    {
+        "categoryName": "LampyVázy",
+        "items": [
+            {"id": 1, "title": "Žulové Lampy", "next": "Materiály", "image": "../lampy-vazy/lampa-zula.png"},
+            {"id": 2, "title": "Žulové Vázy", "next": "Materiály", "image": "../lampy-vazy/vaza-zula.png"},
+            {"id": 3, "title": "Nerezové Lampy", "next": "Barvy", "image": "../lampy-vazy/lampa-nerez.png"},
+            {"id": 4, "title": "Nerezové Vázy", "next": "Barvy", "image": "../lampy-vazy/vaza-nerez.png"}
+        ]
+    },
+    {
+        "categoryName": "Doplňky",
+        "items": [
+            {"id": 1, "title": "Srdce", "next": "Materiály", "image": "../doplnky/srdce.png"},
+            {"id": 2, "title": "Knihy", "next": "Materiály", "image": "../doplnky/kniha.png"},
+            {"id": 3, "title": "Mísy", "next": "Materiály", "image": "../doplnky/misa.png"},
+            {"id": 4, "title": "Podstavce", "next": "Materiály", "image": "../doplnky/podstavec.png"}
+        ]
+    },
+    {
+        "categoryName": "Písmo",
+        "items": [
+            {"id": 1, "title": "", "fontName": "Caslon Regular", "next": "Default", "image": "../font/caslon-regular.png"},
+            {"id": 2, "title": "", "fontName": "Caslon Bold", "next": "Default", "image": "../font/caslon-bold.png"},
+            {"id": 3, "title": "", "fontName": "Bangkok Regular", "next": "Default", "image": "../font/bangkok-regular.png"},
+            {"id": 4, "title": "", "fontName": "Monotype Corsiva", "next": "Default", "image": "../font/monotype-corsiva.png"},
+            {"id": 5, "title": "", "fontName": "Alternate G", "next": "Default", "image": "../font/alternate-g.png"},
+            {"id": 6, "title": "", "fontName": "Balantines Script", "next": "Default", "image": "../font/balantines-script.png"},
+            {"id": 7, "title": "", "fontName": "Balantines Bold", "next": "Default", "image": "../font/balantines-bold.png"},
+            {"id": 8, "title": "", "fontName": "Jiný Font", "next": "Default", "image": "../font/font-jine.png"}
+        ]
+    },
+    {
+        "categoryName": "Materiály",
+        "items": [
+            {"id": 1, "title": "Antas", "next": "Default", "image": "../zula/antas.png"},
+            {"id": 2, "title": "Aurora", "next": "Default", "image": "../zula/aurora.png"},
+            {"id": 3, "title": "Grey", "next": "Default", "image": "../zula/grey.png"},
+            {"id": 4, "title": "Impala Nero", "next": "Default", "image": "../zula/impala-nero.png"},
+            {"id": 5, "title": "Labrador Blue Pearl", "next": "Default", "image": "../zula/labrador-blue-pearl.png"},
+            {"id": 6, "title": "Orion", "next": "Default", "image": "../zula/orion.png"},
+            {"id": 7, "title": "Paradiso", "next": "Default", "image": "../zula/paradiso.png"},
+            {"id": 8, "title": "Sardo", "next": "Default", "image": "../zula/sardo.png"},
+            {"id": 9, "title": "Tarn", "next": "Default", "image": "../zula/bianco-tarn.jpg"},
+            {"id": 10, "title": "Impala Nero Opalovaná", "next": "Default", "image": "../zula/impala-nero-opalovana.jpg"},
+            {"id": 11, "title": "Cinza Opalovaná", "next": "Default", "image": "../zula/cinza-opalovana.jpg"},
+            {"id": 12, "title": "Absolute Black", "next": "Default", "image": "../zula/absolute-black.png"},
+            {"id": 13, "title": "Premium Black", "next": "Default", "image": "../zula/premium-black.jpg"}
+        ]
+    },
+    {
+        "categoryName": "Barvy",
+        "items": [
+            {"id": 1, "title": "Bílá", "next": "Default", "image": "../lampy-vazy/barva/bila.jpg"},
+            {"id": 2, "title": "Černá", "next": "Default", "image": "../lampy-vazy/barva/cerna.jpg"}
+        ]
+    }
+]

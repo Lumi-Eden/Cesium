@@ -1,0 +1,24 @@
+{
+  "Přípisy": [
+    { "id": "jmeno", "label": "Jméno", "type": "text" },
+    { "id": "prijmeni", "label": "Příjmení", "type": "text" },
+    { "id": "narozeni", "label": "☆", "type": "text" },
+    { "id": "umrti", "label": "†", "type": "text" },
+    { "id": "znak", "label": "Znak", "type": "checkbox_text" },
+    { "id": "foto", "label": "Foto", "type": "checkbox_text" },
+    { "id": "lesteni", "label": "Leštění zezadu", "type": "checkbox" },
+    { "id": "chodnicky", "label": "Chodníčky", "type": "checkbox" }
+  ],
+  "Sklodesky rozměr": [
+    { "id": "rozmer", "label": "Rozměr", "type": "text" }
+  ],
+  "Schody": [
+    { "id": "rozmer_stupnice", "label": "Rozměr Stupnice", "type": "text" },
+    { "id": "rozmer_podstupnice", "label": "Rozměr Podstupnice", "type": "text" }
+  ],
+  "Parapety": [
+    { "id": "rozmer", "label": "Rozměr", "type": "text" },
+    { "id": "tloustka", "label": "Tloušťka", "type": "text" },
+    { "id": "okapnicka", "label": "Okapnička", "type": "checkbox" }
+  ]
+}
