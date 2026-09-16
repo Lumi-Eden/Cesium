@@ -27,6 +27,8 @@ function App() {
   // Keyed by the unique instance ID so each window saves its own data separately!
   const [formsData, setFormsData] = useState({});
 
+  const [searchText, setSearchText] = useState("")
+
   const [activeCategory, setActiveCategory] = useState("Default")
   console.log("Current category: ", activeCategory)
 
@@ -154,7 +156,7 @@ function App() {
   };
 
   return (
-    <main className="bg-zinc-100 w-screen h-screen overflow-hidden flex flex-col">
+    <main className="bg-slate-100/70 w-screen h-screen overflow-hidden flex flex-col">
 
       <div id="overlay" className={`bg-gray-500 fixed
         ${
@@ -174,10 +176,10 @@ function App() {
         />
       ))}
 
-      <header className="flex w-full h-16 bg-zinc-100 border-b border-zinc-300">
+      <header className="flex w-full h-16 bg-slate-100/70 border-b border-zinc-300">
         <BackBtn onBackClick={() => {handleReturnToDefault();}} />
         <DeleteBtn handleClearAll={onClearAll} />
-        <SearchBar />
+        <SearchBar searchText={searchText} onSearchTextChange={setSearchText} />
         <OpravaBtn />
         <PrintBtn logEntries={logEntries} />
       </header>
@@ -188,11 +190,12 @@ function App() {
           <LogAside logEntries={logEntries} handleLogItemDeletion={onLogItemDeletion} />
         </aside>
 
-        <div className="flex-1 overflow-auto">
+        <div className="flex-1 overflow-auto bg-slate-100/70 border-b border-l border-zinc-300 rounded-bl-lg">
           <ItemSelection
             activeCategory={activeCategory}
             onCategoryChange={setActiveCategory}
             onStepClick={handleStepClick}
+            searchText={searchText}
           />
           <img src={logoNoBg} className="w-38 mx-auto pointer-events-none:" />
         </div>

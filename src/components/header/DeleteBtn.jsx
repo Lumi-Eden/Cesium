@@ -49,14 +49,14 @@ export default function DeleteBtn({handleClearAll}) {
         <img 
             draggable="false"
             src={deleteImg} 
-            className={`w-11 h-11 my-2 mx-1 p-1.5 bg-[#B59A89] outline-3 outline-black invert-100 rounded-lg cursor-pointer transition-color duration-1000
+            className={`w-11 h-11 my-2 mx-1 p-1.5 bg-[#D2C8B7] hover:bg-[#C2AB9C] outline-3 outline-black invert-100 rounded-lg cursor-pointer
                 ${
                     // Plays animation for deleting
-                    isHoldingDown  && "outline-blue-700"
+                    isHoldingDown  && "transition-color duration-1000 outline-blue-700"
                 }
                 ${
                     // Shows when holding down is finished
-                    justDeleted ? "outline-cyan-400" : "outline-black"
+                    justDeleted ? "transition-color duration-1000 outline-cyan-400" : "outline-black"
                 }
             `}
             {...hold()}
