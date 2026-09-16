@@ -14,7 +14,7 @@ export default function LogAside({logEntries, handleLogItemDeletion}) {
     
     return (
     // Outer fixed container anchored to the bottom-left edge
-    <div className="fixed bottom-14 left-0 z-10 flex items-end gap-3 pointer-events-none">
+    <div className="fixed bottom-14 left-0 flex items-end gap-3 pointer-events-none">
       
         {/* 1. STANDALONE PILLAR BUTTON (Always visible on left edge) */}
         <button

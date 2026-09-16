@@ -93,7 +93,6 @@ function App() {
   // == Form logic ==
   // Opens a new form instance (or spawns another via "Přidat Další")
   const handleOpenForm = (category) => {
-    setIsFormActive(true);
 
     // Count how many forms of this category are CURRENTLY open
     const openCount = openForms.filter((f) => f.category === category).length;
@@ -109,11 +108,10 @@ function App() {
       title: `${category} ${instanceNumber}` // e.g., "Přípisy 1"
     };
 
-    setOpenForms((prev) => [...prev, newForm]);
+    setOpenForms((prev) => [...prev, newForm]); // <- where open forms are set to a value
   };
 
   const handleCloseForm = (instanceId) => {
-    setIsFormActive(false)
     setOpenForms((prev) => prev.filter((f) => f.id !== instanceId));
   };
 
@@ -154,6 +152,11 @@ function App() {
       }
     });
   };
+
+  // Turning the background overlay on and off
+  useEffect(() => {
+    setIsFormActive(openForms.length > 0)
+  }, [openForms])
 
   return (
     <main className="bg-slate-100/70 w-screen h-screen overflow-hidden flex flex-col">
