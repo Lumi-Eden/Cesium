@@ -12,21 +12,10 @@ const CATEGORIES = [
 ];
 
 export default function PrintApp() {
-    // Spun spin
-    // const [deg, setDeg] = useState(0);
-
-    // useEffect(() => {
-    //     const interval = setInterval(() => {
-    //         setDeg((prev) => (prev + 5));
-    //     }, 20);
-
-    //     if (deg === 360) {
-    //         setDeg(0)
-    //     }
-
-    //     // CRITICAL: Cleanup timer when component unmounts!
-    //     return () => clearInterval(interval);
-    // }, []);
+    const [formData, setFormData] = useState(() => {
+        const savedHeaderData = localStorage.getItem("headerData");
+        return savedHeaderData ? JSON.parse(savedHeaderData) : { name: "", tel: "", location: "" }
+    });
 
     // Printing the window or creating a pdf file
     const handlePrint = () => {
@@ -45,7 +34,13 @@ export default function PrintApp() {
         return () => window.removeEventListener("keydown", handleKeyDown);
     }, []);
 
-    // localStorage data manipulation
+    // localStorage and related data manipulation
+    // Setting header data
+    useEffect(() => {
+        localStorage.setItem("headerData", JSON.stringify(formData))
+    }, [formData])
+
+    // Setting log entries
     const [logEntries, setLogEntries] = useState([])
     useEffect(() => {
         const rawData = localStorage.getItem("print_order_data");
@@ -57,6 +52,14 @@ export default function PrintApp() {
             }
         }
     }, []);
+
+    // helper function to handle the change of data in the header
+    const handleChange = (field, value) => {
+        setFormData((prev) => ({
+            ...prev,
+            [field]: value // a duplicate entry overwrites the previous one
+        }));
+    };
 
     // Group entries by category
     const groupedEntries = logEntries.reduce((acc, entry) => {
@@ -74,19 +77,12 @@ export default function PrintApp() {
 
     return (
         <main className="flex flex-col p-2">
-            {/* spun */}
-            {/* <img
-                src="./src/assets/spun.png"
-                style={{ transform: `rotate(${deg}deg)` }}
-                className="w-50 transition-transform duration-75"
-            />
-            <p>hello</p> */}
 
             <header className="w-full pb-4 border-b border-zinc-300">
                 <div className="grid grid-cols-2 w-80 gap-2">
-                    <span className="font-bold">Jméno Zákazníka:</span> <input type="text" className="border border-zinc-500 w-90 h-6.5 px-1 py-0.5 rounded focus:outline-none" />
-                    <span className="font-bold">Tel.:</span> <input type="text" className="border border-zinc-500 w-90 h-6.5 px-1 py-0.5 rounded focus:outline-none" />
-                    <span className="font-bold">Místo:</span> <input type="text" className="border border-zinc-500 w-90 h-6.5 px-1 py-0.5 rounded focus:outline-none" />
+                    <span className="font-bold">Jméno Zákazníka:</span> <input type="text" value={formData.name} onChange={(e) => handleChange("name", e.target.value)} className="border border-zinc-500 w-90 h-6.5 px-1 py-0.5 rounded focus:outline-none" />
+                    <span className="font-bold">Tel.:</span> <input type="text" value={formData.tel} onChange={(e) => handleChange("tel", e.target.value)} className="border border-zinc-500 w-90 h-6.5 px-1 py-0.5 rounded focus:outline-none" />
+                    <span className="font-bold">Místo:</span> <input type="text" value={formData.location} onChange={(e) => handleChange("location", e.target.value)} className="border border-zinc-500 w-90 h-6.5 px-1 py-0.5 rounded focus:outline-none" />
                     <img src={logoNoBg} alt="Logo" className="absolute right-0 -top-5.5 w-35" />
                 </div>
             </header>

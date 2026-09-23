@@ -1,11 +1,7 @@
 import { useState } from "react"
 
 export default function LogAside({logEntries, handleLogItemDeletion}) {
-    // Potential for making the button work only under certain conditions
-    
-
     const [logsExpanded, setLogsExpanded] = useState(false)
-    const [logsHasContent, setLogsHasContent] = useState(false)
 
     // Changes whether logs are expanded onClick of ^
     const logsExpansionHandler = () => {
@@ -16,7 +12,6 @@ export default function LogAside({logEntries, handleLogItemDeletion}) {
     // Outer fixed container anchored to the bottom-left edge
     <div className="fixed bottom-14 left-0 flex items-end gap-3 pointer-events-none">
       
-        {/* 1. STANDALONE PILLAR BUTTON (Always visible on left edge) */}
         <button
             type="button"
             onClick={logsExpansionHandler}
@@ -29,7 +24,7 @@ export default function LogAside({logEntries, handleLogItemDeletion}) {
             </span>
         </button>
 
-        {/* 2. SLIGHTLY SEPARATED POP-OUT CARD */}
+        {/* Pop out card */}
         <div
             className={`pointer-events-auto w-96 max-h-112 bg-white border border-slate-200 shadow-xl rounded-xl p-4 flex flex-col transition-all duration-300 ease-in-out transform origin-left ${
             logsExpanded
@@ -37,7 +32,7 @@ export default function LogAside({logEntries, handleLogItemDeletion}) {
                 : "opacity-0 -translate-x-6 scale-95 pointer-events-none"
             }`}
         >
-            {/* Header inside pop-out card */}
+            {/* Header */}
             <div className="flex items-center justify-between pb-3 mb-3 border-b border-slate-100">
             <h2 className="font-bold text-slate-800 text-base">Historie záznamů</h2>
             <span className="text-xs bg-slate-100 text-slate-600 px-2 py-0.5 rounded-full font-medium">
@@ -45,7 +40,7 @@ export default function LogAside({logEntries, handleLogItemDeletion}) {
             </span>
             </div>
 
-            {/* Scrollable Entries List */}
+            {/* Entries */}
             <div className="flex flex-col gap-2 overflow-y-auto max-h-80 pr-1">
             {logEntries.length === 0 ? (
                 <p className="text-center text-slate-400 py-6 text-sm">Žádné záznamy</p>
