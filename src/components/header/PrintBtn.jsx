@@ -5,17 +5,20 @@ import printBtnImg from "../../assets/print.png"
 export default function PrintBtn({logEntries}) {
 
     const handleCreatePrintWindow = async () => {
+
         try {
             // Save data into localStorage for use in print window
             localStorage.setItem("print_order_data", JSON.stringify(logEntries));
             // localStorage.setItem("print_form_data", JSON.stringify())
 
             const webview = new WebviewWindow('printWindow', {
-                url: "print.html", // or 'index.html#/print' if using hash routing
+                url: "print.html",
                 title: 'Tisk Objednávky',
                 width: 1000,
                 height: 1280,
             });
+
+            
 
             webview.once('tauri://created', () => {
             console.log('Print window created successfully!');

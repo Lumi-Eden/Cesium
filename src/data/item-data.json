@@ -3,11 +3,12 @@
         "categoryName": "Default",
         "items": [
             {"id": 1, "title": "Náhrobky", "next": "Náhrobky", "image": "../desky/typ-A.png"},
-            {"id": 2, "title": "Lampy a Vázy", "next": "LampyVázy", "image": "../lampy-vazy/lampa-nerez.png"},
+            {"id": 2, "title": "Lampy a Vázy", "next": "LampyVázy", "image": "../lampy-vazy/lampa-zula.png"},
             {"id": 3, "title": "Doplňky", "next": "Doplňky", "image": "../doplnky/srdce.png"},
             {"id": 4, "title": "Schody", "next": "Materiály", "image": "../schody.png"},
             {"id": 5, "title": "Parapety", "next": "Materiály", "image": "../parapety.png"},
-            {"id": 6, "title": "Písmo", "next": "Písmo", "image": "../Aa-pismo.png"}
+            {"id": 6, "title": "Linky", "next": "Materiály", "image": "../linky.png"},
+            {"id": 7, "title": "Písmo", "next": "Písmo", "image": "../Aa-pismo.png"}
         ]
     },
     {

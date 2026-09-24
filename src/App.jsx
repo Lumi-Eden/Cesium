@@ -11,6 +11,7 @@ import FormAside from "./components/aside/FormAside";
 import FormPopup from "./components/aside/FormPopup";
 import LogAside from "./components/aside/LogAside";
 import ItemSelection from "./components/main/ItemSelection";
+import NavGuide from "./components/main/NavGuide";
 
 // Mapping form names to their parent print categories
 const printCategoryMap = {
@@ -30,16 +31,17 @@ function App() {
   const [searchText, setSearchText] = useState("")
 
   const [activeCategory, setActiveCategory] = useState("Default")
-  console.log("Current category: ", activeCategory)
 
   // == Data logging logic ==
   const [activeBreadcrumbs, setActiveBreadcrumbs] = useState([])
   const [logEntries, setLogEntries] = useState([])
+  const [currentMainCat, setCurrentMainCat] = useState("Domovská stránka") // Used for knowing the start of breacrumb trail
 
   // Call every step click - e.g. Náhrobky -> Typ -> Materiály
   const handleStepClick = (stepLabel, isFinalStep = false) => {
-    const updatedBreadcrumbs = [...activeBreadcrumbs, stepLabel]
+    const updatedBreadcrumbs = [...activeBreadcrumbs, stepLabel || "x"] // x = skipped/undefined value of step
     console.log("Breadcrumbs: ", updatedBreadcrumbs)
+    setCurrentMainCat(updatedBreadcrumbs[0])
 
     if (isFinalStep) {
       // Completed the entry tree! Push logs and reset navigation path
@@ -51,6 +53,7 @@ function App() {
 
       setLogEntries((prev) => [...prev, newEntry]);
       setActiveBreadcrumbs([]); // Reset active path to default
+      setCurrentMainCat("Domovská stránka") // Reset main category
     } else {
       // Not at the end, update breadcrumb path to next view
       setActiveBreadcrumbs(updatedBreadcrumbs);
@@ -70,9 +73,10 @@ function App() {
       setLogEntries((prev) => [...prev, incompleteEntry]);
     }
 
-    // Clear active breadcrumbs and reset view state
+    // Clear active breadcrumbs, main category and reset view state
     setActiveBreadcrumbs([]);
     setActiveCategory("Default");
+    setCurrentMainCat("Domovská stránka")
   };
 
   // Log manpipulation
@@ -158,6 +162,16 @@ function App() {
     setIsFormActive(openForms.length > 0)
   }, [openForms])
 
+
+  // Debugging
+  useEffect(() => {
+    console.log("Current main category", currentMainCat)
+  }, [currentMainCat])
+
+  useEffect(() => {
+    console.log("Current category: ", activeCategory)
+  }, [activeCategory])
+
   return (
     <main className="bg-slate-100/70 w-screen h-screen overflow-hidden flex flex-col">
 
@@ -194,8 +208,11 @@ function App() {
         </aside>
 
         <div className="flex-1 overflow-auto bg-slate-100/70 border-b border-l border-zinc-300 rounded-bl-lg">
+          <NavGuide currentMainCat={currentMainCat} />
           <ItemSelection
             activeCategory={activeCategory}
+            currentMainCat={currentMainCat}
+            setCurrentMainCat={setCurrentMainCat}
             onCategoryChange={setActiveCategory}
             onStepClick={handleStepClick}
             searchText={searchText}

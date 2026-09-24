@@ -14,6 +14,7 @@ const CATEGORIES = [
 export default function PrintApp() {
     const [formData, setFormData] = useState(() => {
         const savedHeaderData = localStorage.getItem("headerData");
+        // Return statement left as the end value of useState variable
         return savedHeaderData ? JSON.parse(savedHeaderData) : { name: "", tel: "", location: "" }
     });
 
@@ -57,7 +58,7 @@ export default function PrintApp() {
     const handleChange = (field, value) => {
         setFormData((prev) => ({
             ...prev,
-            [field]: value // a duplicate entry overwrites the previous one
+            [field]: value // <- A duplicate entry overwrites the previous one
         }));
     };
 
