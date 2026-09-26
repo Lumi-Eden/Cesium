@@ -83,7 +83,7 @@ export default function PrintApp() {
                 <div className="grid grid-cols-2 w-80 gap-2">
                     <span className="font-bold">Jméno Zákazníka:</span> <input type="text" value={formData.name} onChange={(e) => handleChange("name", e.target.value)} className="border border-zinc-500 w-90 h-6.5 px-1 py-0.5 rounded focus:outline-none" />
                     <span className="font-bold">Tel.:</span> <input type="text" value={formData.tel} onChange={(e) => handleChange("tel", e.target.value)} className="border border-zinc-500 w-90 h-6.5 px-1 py-0.5 rounded focus:outline-none" />
-                    <span className="font-bold">Místo:</span> <input type="text" value={formData.location} onChange={(e) => handleChange("location", e.target.value)} className="border border-zinc-500 w-90 h-6.5 px-1 py-0.5 rounded focus:outline-none" />
+                    <span className="font-bold">Adresa:</span> <input type="text" value={formData.location} onChange={(e) => handleChange("location", e.target.value)} className="border border-zinc-500 w-90 h-6.5 px-1 py-0.5 rounded focus:outline-none" />
                     <img src={logoNoBg} alt="Logo" className="absolute right-0 -top-5.5 w-35" />
                 </div>
             </header>
