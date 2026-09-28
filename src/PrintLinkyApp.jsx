@@ -41,8 +41,9 @@ export default function PrintLinkyApp() {
         }
     }, []);
 
-    // Entries produced by the "Linky" wizard flow: path = ["Linky", <shape>, <obklad/material>?]
+    // Entries produced by the "Linky selection": path = ["Linky", <material>, <obklad/material>?]
     const linkyEntries = logEntries.filter((entry) => entry.path && entry.path[0] === "Linky");
+    console.log(logEntries)
 
     // helper function to handle the change of data in the header
     const handleChange = (field, value) => {
@@ -115,11 +116,11 @@ export default function PrintLinkyApp() {
             <section id="container-main" className="my-4">
                 <h1 className="font-bold">Položky</h1>
 
-                {/* Linky / Obklady selected via the item-selection wizard */}
+                {/* Linky / Obklady selected via item-selection*/}
                 {linkyEntries.length > 0 && (
                     <div className="text-sm mx-2 mb-4">
                         <span className="text-zinc-500 font-medium">Linky a Obklady:</span>
-                        <div className="mt-2 space-y-2 mx-4">
+                        <div className="flex gap-5 mt-2 space-y-2 mx-4">
                             {linkyEntries.map((entry, idx) => {
                                 const shapeLabel = entry.path[1] || entry.formatted || "";
                                 const obkladLabel = entry.path[2];
@@ -143,7 +144,6 @@ export default function PrintLinkyApp() {
                 )}
 
                 <div className="space-y-2">
-                    {/* Dynmically import data here */}
 
                     <h1 className="font-bold">Formulář</h1>
                     {/* Rovná */}
